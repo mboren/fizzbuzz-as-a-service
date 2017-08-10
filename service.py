@@ -34,13 +34,11 @@ def handler(event, context):
 
         if (query_parameters is not None) and 'data' in query_parameters:
             data = query_parameters['data']
-            parsed_data = parse_int_quietly(data)
+            parsed_data = (parse_int_quietly(i) for i in data.split(','))
+            filtered_data = (i for i in parsed_data if i is not None)
+            result = [{"in": i, "out": fb.fizzbuzz(i)} for i in filtered_data]
 
-            if parsed_data is not None:
-                result = fb.fizzbuzz(parsed_data)
-                return make_response(None, result)
-            else:
-                return make_response('failed to convert "{}" to int'.format(data))
+            return make_response(None, result)
         else:
             return make_response('missing query param: data')
     else:
