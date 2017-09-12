@@ -14,9 +14,16 @@ def parse_int_quietly(s):
 
 
 def make_response(err, res=None):
+    if err:
+        body = { 'error': err }
+        status_code = '400'
+    else:
+        body = res
+        status_code = '200'
+
     return {
-        'statusCode': '400' if err else '200',
-        'body': json.dumps(err) if err else json.dumps(res),
+        'statusCode': status_code,
+        'body': json.dumps(body),
         'headers': {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
