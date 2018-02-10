@@ -69,7 +69,7 @@ lambda invoke -v
   ```json
   {
     "httpMethod": "POST",
-    "body": "{\"field1\": \"value1\"}"
+    "body": "{\"field1\": \"value1\"}",
     "queryStringParameters": {
       "data": "15"
     }
