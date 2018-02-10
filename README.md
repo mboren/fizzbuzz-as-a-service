@@ -11,7 +11,7 @@ Try it out:
 - [/fizzbuzz?data=2](https://i564e9ob81.execute-api.us-east-1.amazonaws.com/prod/fizzbuzz?data=2)
 
 ## Dependencies
-This is an HTTP microservice service that was written in Python 2.7. 
+This is an HTTP microservice that was written in Python 2.7. 
 It is designed to run on [AWS Lambda](https://aws.amazon.com/lambda/)
 and be triggered by [API Gateway](https://aws.amazon.com/api-gateway/).
 I used [python-lambda](https://github.com/nficano/python-lambda) to simplify deployment.
